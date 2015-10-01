@@ -12,6 +12,11 @@
     <description>Maven Parent POM for Sproutigy Open Source projects</description>
     <url>https://github.com/Sproutigy/OpenSource-ParentPOM</url>
 
+    <organization>
+        <name>Sproutigy</name>
+        <url>http://www.sproutigy.com</url>
+    </organization>
+
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -30,17 +35,22 @@
         <developer>
             <email>dev@lukeahead.net</email>
             <name>Lucas Nawojczyk</name>
-            <url>http://www.lukeahead.net/</url>
+            <url>http://www.lukeahead.net</url>
             <id>LukeAheadNET</id>
         </developer>
     </developers>
 
     <properties>
 
-        <java.version>1.7</java.version>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <maven.version>(,2.1.0),(2.1.0,2.2.0),(2.2.0,)</maven.version>
         <maven.version.message>Maven 2.1.0 and 2.2.0 produce incorrect GPG signatures and checksums respectively.</maven.version.message>
+
+        <bundle.import-package>*</bundle.import-package>
+        <bundle.dynamicimport-package>*</bundle.dynamicimport-package>
 
         <slf4j.version>1.7.12</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
@@ -49,10 +59,14 @@
         <commons.logging.version>1.2</commons.logging.version>
 
         <junit.version>4.12</junit.version>
+        <junit-benchmarks.version>0.7.2</junit-benchmarks.version>
         <assertj.version>3.2.0</assertj.version>
+        <awaitility.version>1.6.3</awaitility.version>
         <mockito.version>1.10.19</mockito.version>
         <powermock.version>1.6.2</powermock.version>
 
+        <commons.vfs.version>1.0</commons.vfs.version>
+        <commons.vfs2.version>2.0</commons.vfs2.version>
         <commons.lang.version>2.6</commons.lang.version>
         <commons.lang3.version>3.4</commons.lang3.version>
         <commons.io.version>2.4</commons.io.version>
@@ -81,11 +95,19 @@
         <commons.httpasyncclient.version>4.1</commons.httpasyncclient.version>
         <commons.httpclient-android.version>4.3.5.1</commons.httpclient-android.version>
         <guava.version>18.0</guava.version>
+        <jsch.version>0.1.53</jsch.version>
+        <javax.mail.version>1.5.4</javax.mail.version>
 
         <lombok.version>1.16.6</lombok.version>
         <bndlib.version>2.4.0</bndlib.version>
+        <felix.scr.version>2.0.0</felix.scr.version>
+        <felix.scr-annotations.version>1.9.12</felix.scr-annotations.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss.SSSZ</maven.build.timestamp.format>
+        <timestamp>${maven.build.timestamp}</timestamp>
 
     </properties>
 
@@ -247,9 +269,21 @@
             </dependency>
 
             <dependency>
+                <groupId>com.carrotsearch</groupId>
+                <artifactId>junit-benchmarks</artifactId>
+                <version>${junit-benchmarks.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>org.assertj</groupId>
                 <artifactId>assertj-core</artifactId>
                 <version>${assertj.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.jayway.awaitility</groupId>
+                <artifactId>awaitility</artifactId>
+                <version>${awaitility.version}</version>
             </dependency>
 
             <dependency>
@@ -295,9 +329,30 @@
                 <version>${bndlib.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>org.apache.felix.scr</artifactId>
+                <version>${felix.scr.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>org.apache.felix.scr.annotations</artifactId>
+                <version>${felix.scr-annotations.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-vfs</groupId>
+                <artifactId>commons-vfs</artifactId>
+                <version>${commons.vfs}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-vfs2</artifactId>
+                <version>${commons.vfs2}</version>
             </dependency>
 
             <dependency>
@@ -394,6 +449,11 @@
                 <groupId>commons-net</groupId>
                 <artifactId>commons-net</artifactId>
                 <version>${commons.net.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-httpclient</groupId>
+                <artifactId>commons-httpclient</artifactId>
+                <version>3.1</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
@@ -499,6 +559,21 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jcraft</groupId>
+                <artifactId>jsch</artifactId>
+                <version>${jsch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>javax.mail-api</artifactId>
+                <version>${javax.mail.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>1.4.7</version>
             </dependency>
 
         </dependencies>
@@ -617,6 +692,11 @@
                     <artifactId>maven-bundle-plugin</artifactId>
                     <version>2.5.4</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>animal-sniffer-maven-plugin</artifactId>
+                    <version>1.14</version>
+                </plugin>
 
             </plugins>
         </pluginManagement>
@@ -648,8 +728,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
 
@@ -709,8 +790,117 @@
                 <artifactId>jgitflow-maven-plugin</artifactId>
             </plugin>
 
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>bundle</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                        <Bundle-Name>${project.name}</Bundle-Name>
+                        <Bundle-Version>${project.version}</Bundle-Version>
+                        <Bundle-Vendor>${project.organization.name}</Bundle-Vendor>
+                        <Bundle-DocURL>${project.organization.url}</Bundle-DocURL>
+                        <Include-Resource>{maven-resources}</Include-Resource>
+                        <Import-Package>${bundle.import-package}</Import-Package>
+                        <DynamicImport-Package>${bundle.dynamicimport-package}</DynamicImport-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>check-java5</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>animal-sniffer-maven-plugin</artifactId>
+                        <configuration>
+                            <signature>
+                                <groupId>org.codehaus.mojo.signature</groupId>
+                                <artifactId>java15-sun</artifactId>
+                                <version>1.0</version>
+                            </signature>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>ensure-java-1.5-class-library</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>check-java6</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>animal-sniffer-maven-plugin</artifactId>
+                        <configuration>
+                            <signature>
+                                <groupId>org.codehaus.mojo.signature</groupId>
+                                <artifactId>java16-sun</artifactId>
+                                <version>1.10</version>
+                            </signature>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>ensure-java-1.6-class-library</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>check-java7</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>animal-sniffer-maven-plugin</artifactId>
+                        <configuration>
+                            <signature>
+                                <groupId>org.codehaus.mojo.signature</groupId>
+                                <artifactId>java17</artifactId>
+                                <version>1.0</version>
+                            </signature>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>ensure-java-1.7-class-library</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
     <distributionManagement>
         <snapshotRepository>
