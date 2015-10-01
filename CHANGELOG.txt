@@ -1,0 +1,11 @@
+Version 1.1 (2015-10-01):
+- Changed default Java compiler version to 1.8
+- Ability to override maven.compiler.source and maven.compiler.target properties
+- Set up to make OSGi bundles (when POM is declared as <packing>bundle</packaging>)
+- Incompatibility with older JVM code sniffing (optional, as profiles check-javaV)
+- More predefined libraries in dependency management
+- Declared timestamp format
+- Information update and minor fixes in POM
+- Introduced versatile .gitignore that can be used in other Java projects
+
+Version 1.0 (2015-09-24) - Initial release
