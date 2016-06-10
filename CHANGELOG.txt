@@ -1,3 +1,6 @@
+Version 2 (2016-06-10):
+- Complete rewrite (incompatible with previous version)
+
 Version 1.1 (2015-10-01):
 - Changed default Java compiler version to 1.8
 - Ability to override maven.compiler.source and maven.compiler.target properties
