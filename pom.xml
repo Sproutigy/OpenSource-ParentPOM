@@ -776,6 +776,9 @@
             <plugin>
                 <groupId>external.atlassian.jgitflow</groupId>
                 <artifactId>jgitflow-maven-plugin</artifactId>
+                <configuration>
+                    <scmCommentPrefix xml:space="preserve">[RELEASE] </scmCommentPrefix>
+                </configuration>
             </plugin>
         </plugins>
     </build>
