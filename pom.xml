@@ -4,7 +4,7 @@
 
     <groupId>com.sproutigy</groupId>
     <artifactId>opensource-parent</artifactId>
-    <version>4-SNAPSHOT</version>
+    <version>3</version>
 
     <packaging>pom</packaging>
 
