@@ -270,19 +270,6 @@
                         <connectionType>developerConnection</connectionType>
                     </configuration>
                 </plugin>
-
-
-                <!-- External -->
-
-                <plugin>
-                    <groupId>external.atlassian.jgitflow</groupId>
-                    <artifactId>jgitflow-maven-plugin</artifactId>
-                    <version>1.0-m5.1</version>
-                    <configuration>
-                        <scmCommentPrefix xml:space="preserve">[RELEASE] </scmCommentPrefix>
-                        <pushReleases>true</pushReleases>
-                    </configuration>
-                </plugin>
             </plugins>
         </pluginManagement>
 
@@ -297,6 +284,16 @@
                     <serverId>ossrh</serverId>
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>external.atlassian.jgitflow</groupId>
+                <artifactId>jgitflow-maven-plugin</artifactId>
+                <version>1.0-m5.1</version>
+                <configuration>
+                    <scmCommentPrefix xml:space="preserve">[RELEASE] </scmCommentPrefix>
+                    <pushReleases>true</pushReleases>
                 </configuration>
             </plugin>
         </plugins>
