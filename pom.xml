@@ -300,7 +300,7 @@
                 <version>1.0-m5.1</version>
                 <configuration>
                     <scmCommentPrefix xml:space="preserve">[RELEASE] </scmCommentPrefix>
-                    <pushReleases>true</pushReleases>
+                    <pushReleases>false</pushReleases>
                 </configuration>
             </plugin>
         </plugins>
