@@ -16,6 +16,15 @@
         <url>http://www.sproutigy.com</url>
     </organization>
 
+    <developers>
+        <developer>
+            <email>dev@lukeahead.net</email>
+            <name>Łukasz Nawojczyk</name>
+            <url>http://www.lukeahead.net</url>
+            <id>LukeAheadNET</id>
+        </developer>
+    </developers>
+
     <properties>
         <scm.repository>OpenSource-ParentPOM</scm.repository>
         <scm.baseurl>scm:git:git@github.com:Sproutigy</scm.baseurl>
